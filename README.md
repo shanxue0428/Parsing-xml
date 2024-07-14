@@ -37,7 +37,7 @@ Copy code
 jupyter notebook Add_X_parse_xml_data.ipynb
 Run the notebook cells to execute the code.
 
-Data Preparation
+## Data Preparation
 Step 1: Identify the Required Data
 Determine what data you need by downloading corresponding auction dates from TreasuryDirect's auction query. Download and save them as three CSV files:
 
@@ -54,8 +54,8 @@ Copy code
 ['1-Year 10-Month', '1-Year 11-Month', '10-Year', '2-Year', '3-Year', '4-Year 10-Month', '4-Year 4-Month', '4-Year 6-Month', '4-Year 8-Month', '5-Year', '6-Year 10-Month', '6-Year 4-Month', '6-Year 7-Month', '7-Year', '9-Year 10-Month', '9-Year 11-Month', '9-Year 4-Month', '9-Year 8-Month', '9-Year 9-Month']
 Use these auction dates to download XML files for specific dates.
 
-Code Explanation
-Function Definitions
+## Code Explanation
+## Function Definitions
 Download XML
 python
 Copy code
