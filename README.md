@@ -27,7 +27,7 @@ To run the notebook you need to have the following dependencies installed:
 You can install these dependencies using pip:
 
 ```bash
-pip install pandas requests
+##pip install pandas requests
 
 
 ## Usage
