@@ -92,7 +92,7 @@ def extract_info(tree):
             "BidToCoverRatio": auction_announcement.findtext("BidToCoverRatio")
         }
     return data
--->
+
 
 def extract_info(tree):
     root = tree.getroot()
