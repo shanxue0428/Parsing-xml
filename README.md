@@ -33,9 +33,9 @@ bash ##pip install pandas requests
 Open the Jupyter Notebook:
 
 ```HTML
-<!--
+
 jupyter notebook XML Data Parser.ipynb
--->
+
 ```
 
 
@@ -52,32 +52,33 @@ Step 2: Sort Out All the Terms
 Example terms for Securities_Note.csv:
 
 python
-<!--
+```HTML
 ['1-Year 10-Month', '1-Year 11-Month', '10-Year', '2-Year', '3-Year', '4-Year 10-Month', '4-Year 4-Month', '4-Year 6-Month', '4-Year 8-Month', '5-Year', '6-Year 10-Month', '6-Year 4-Month', '6-Year 7-Month', '7-Year', '9-Year 10-Month', '9-Year 11-Month', '9-Year 4-Month', '9-Year 8-Month', '9-Year 9-Month']
--->
+```
 
 
 
 ## Function Definitions
 - Download XML
 python
-<!--
+```HTML
 def parse_xml(file_path):
     # Function to parse XML file
     return ElementTree object
 -->
+```
 
 - Parse XML
 python
-<!--
+```HTML
 def parse_xml(file_path):
     # Function to parse XML file
     return ElementTree object
--->
+```
 
 - Extract Information
 python
-<!--
+```HTML
 def extract_info(tree):
     root = tree.getroot()
     data = {}
@@ -106,16 +107,17 @@ def extract_info(tree):
             "BidToCoverRatio": auction_announcement.findtext("BidToCoverRatio")
         }
     return data
-    
+```
+
 ## User Interaction
 Prompt the user for the security type and term (year or week):
 
 python
-<!--
+```HTML
 security_type = input("Enter the security type (e.g. Bond, Bill, Note): ")
 term_type = input("Enter the term type (year/week): ").strip().lower()
 term_value = int(input("Enter the term value (e.g. 1, 2, 3, 5, 7, 10, 20, 30 for year or 4, 8, 13, 17, 26, 52 for week): "))
--->
+```
 
 
 # Determine the CSV file path based on the security type
@@ -133,7 +135,7 @@ auction_dates = df['Auction Date'].dropna().unique()
 ## Download and process each XML file for the extracted Auction Dates
 Determine the CSV file path based on the security type. Check if the CSV file exists and read the CSV file to extract the Auction Dates. Download and process each XML file for the extracted Auction Dates.
 
-<!--
+```HTML
 # Determine the CSV file path based on the security type
 csv_file_path = f'Securities_{security_type}.csv'
 
@@ -165,12 +167,12 @@ for auction_date in auction_dates:
 
 output_csv = f"{security_type}_results.csv"
 df_fin.to_csv(output_csv, index=False)
--->
 
+```
 
 ## Security Term Check
 python
-<!--
+```HTML
 def is_security_term(file_path, term_type, term_value):
     pattern = re.compile(f"<SecurityTermWeekYear>{term_value}-{term_type.upper()}</SecurityTermWeekYear>")
     with open(file_path, 'r') as file:
@@ -182,7 +184,7 @@ def is_security_term(file_path, term_type, term_value):
                     if re.search(f"<SecurityTermWeekYear>{sub_year}-YEAR</SecurityTermWeekYear>", line):
                         return True
     return False
--->
+```
 
 
 ## Advantages & Disadvantages
