@@ -106,7 +106,7 @@ if not os.path.exists(csv_file_path):
 df = pd.read_csv(csv_file_path)
 auction_dates = df['Auction Date'].dropna().unique()
 
-# Download and process each XML file for the extracted Auction Dates
+## Download and process each XML file for the extracted Auction Dates
 for auction_date in auction_dates:
     date_str = convert_date(auction_date)  # Convert date to YYYYMMDD format
     for suffix in range(1, 4):  # Try suffixes 1, 2, 3
@@ -125,7 +125,8 @@ for auction_date in auction_dates:
 
 output_csv = f"{security_type}_results.csv"
 df_fin.to_csv(output_csv, index=False)
-Security Term Check
+
+## Security Term Check
 python
 Copy code
 def is_security_term(file_path, term_type, term_value):
@@ -139,16 +140,17 @@ def is_security_term(file_path, term_type, term_value):
                     if re.search(f"<SecurityTermWeekYear>{sub_year}-YEAR</SecurityTermWeekYear>", line):
                         return True
     return False
-Advantages & Disadvantages
-Advantages:
+## Advantages & Disadvantages
+-Advantages:
 
 Clear user interaction and easy to check the data.
 User-friendly interface for downloading specific notes.
-Disadvantages:
+
+-Disadvantages:
 
 Manual input required each time.
 Can be automated further with bash scripting for efficiency.
-Notes
+## Notes
 Ensure the CSV file with auction dates is available in the working directory.
 Update the base_url variable to point to the correct XML file source.
 To add different time units like weeks, add corresponding code lines in the is_security_term function.
